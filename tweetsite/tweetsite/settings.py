@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-nvv(mm%=^%ga%p-ez4dngsx!n*uhl8ry!j4!3fuaqgu^q+#dr^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sweettweet-ov4o.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
