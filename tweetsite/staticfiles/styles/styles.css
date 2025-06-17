@@ -1,0 +1,111 @@
+.neon-button {
+  font-size: 1.3rem;
+  padding: 12px 24px;
+  background-color: transparent;   /* Transparent background for neon effect */
+  border: 2px solid #00ffea;       /* Neon border */
+  border-radius: 8px;
+  color: #00ffea;                  /* Neon text color */
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 5px #00ffea,
+              0 0 10px #00ffea,
+              0 0 20px #00ffea;
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+    background-color: #00ffea;      /* Keep same neon background */
+  color: white;
+  border: white;
+  box-shadow: 0 0 10px #00ffea,
+              0 0 20px #00ffea,
+              0 0 40px #00ffea;
+  transform: scale(1.05);
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 5px #00ffea,
+                0 0 10px #00ffea,
+                0 0 20px #00ffea;
+  }
+  50% {
+    box-shadow: 0 0 10px #00ffea,
+                0 0 20px #00ffea,
+                0 0 40px #00ffea;
+  }
+  100% {
+    box-shadow: 0 0 5px #00ffea,
+                0 0 10px #00ffea,
+                0 0 20px #00ffea;
+  }
+}
+
+.neon-button {
+  animation: neonPulse 2s infinite alternate;
+}
+
+/* CreateTweetButton */
+.create-tweet-button {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.create-tweet-button:hover {
+  animation: breathe 2s infinite ease-in-out;
+  box-shadow: 0 0 20px rgba(95, 159, 255, 0.7);
+  transform: scale(1.05);
+}
+
+@keyframes breathe {
+  0% {
+    box-shadow: 0 0 20px rgba(95, 159, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(95, 159, 255, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(95, 159, 255, 0.7);
+  }
+}
+
+.create-tweet-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* Form */
+.smaller-form {
+  font-size: 1.2rem;
+}
+
+.centered-container {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+
+
+
+.cool-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00e5ff;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: default;
+  padding-top: 40px;
+
+}
+
+.cool-heading:hover {
+  transform: scale(1.1);
+}
+
