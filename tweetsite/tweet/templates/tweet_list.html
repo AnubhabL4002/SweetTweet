@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    SweetTweet
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+
+{% if request.GET.q %}
+    {% if tweets.count > 0 %}
+        <p class="text-center text-warning my-4">Showing results for "<strong>{{ request.GET.q }}</strong>"</p>
+    {% else %}
+        <p class="text-center text-warning my-4">No tweet found with "<strong>{{ request.GET.q }}</strong>"</p>
+    {% endif %}
+{% endif %}
+
+<h1 class='text-center mt-4 mb-4'>⋆༺𓆩  You all are Creative  ︎𓆪༻⋆</h1>
+<br>
+
+<div class="text-center" style="margin-top: 20px; margin-bottom: 75px;">
+    <a class = 'create-tweet-button btn btn-primary' href="{% url 'tweet_create' %}">Create a tweet</a>
+</div>
+<div class="container d-flex justify-content-center">
+    <div class="container row gap-3">
+        {% for tweet in tweets %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{tweet.photo.url}}" class="card-img-top py-2" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{tweet.user.username}}</h5>
+                    <p class="card-text">{{tweet.text}}</p>
+                    {% if tweet.user == user %}
+                    <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div style="height: 150px;"></div>
+{% endblock  %}

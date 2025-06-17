@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    SweetTweet
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+
+<h1 class='cool-heading text-center mt-4 text-success'>Welcome to SweetTweet!</h1>
+<div class="text-center" style="margin-top: 150px;">
+  <a class="btn btn-primary neon-button" href="{% url 'tweet_list' %}">See All SweetTweets</a>
+</div>
+
+{% endblock  %}

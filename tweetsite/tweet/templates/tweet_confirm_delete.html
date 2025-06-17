@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    SweetTweet
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+
+<h1 class='text-center mt-4 mb-4'>Are you sure you want to delete the tweet?</h1>
+
+<form method = "post">
+    {% csrf_token %}
+    <div class="text-center" style="margin-top: 75px; margin-bottom: 75px;">
+        <button type="submit" class="create-tweet-button btn btn-danger mx-5">Delete</button>
+        <a class = 'create-tweet-button btn btn-success mx-5' href="{% url 'tweet_list' %}">Cancel</a>
+    </div>
+</form>
+
+{% endblock  %}
