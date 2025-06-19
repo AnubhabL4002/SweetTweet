@@ -22,8 +22,9 @@
 <div class="text-center" style="margin-top: 20px; margin-bottom: 75px;">
     <a class = 'create-tweet-button btn btn-primary' href="{% url 'tweet_create' %}">Create a tweet</a>
 </div>
-<div class="container d-flex justify-content-center">
-    <div class="container row gap-3">
+
+<div class="container">
+    <div class="row justify-content-center gap-3">
         {% for tweet in tweets %}
             <div class="card zoom-card" style="width: 18rem;">
                 <img src="{{tweet.photo.url}}" class="card-img-top py-2" alt="...">
