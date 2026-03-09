@@ -2,35 +2,65 @@
 {% load static %}
 
 {% block title %}
-    SweetTweet
+SweetTweet
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 
-<div class="centered-container">
-    <div style="margin-top: 45px; margin-bottom: 75px;">
-        <h1 class='text-center'>What's in your Mind? 🤔</h1>
-    </div>
+<div class="container d-flex justify-content-center align-items-center" style="min-height:70vh;">
+    <div class="col-12 col-sm-10 col-md-7 col-lg-6">
 
-    <h2>
-        {% if form.instance.pk %}
-        <div style="margin-bottom: 20px;">
-        Edit Tweet
+        <div class="card p-4 shadow-lg border-0">
+
+            <h2 class="text-center mb-3">What's in your Mind? 🤔</h2>
+
+            {% if form.instance.pk %}
+                <p class="text-center text-muted mb-4">Edit your tweet</p>
+            {% else %}
+                <p class="text-center text-muted mb-4">Create a new tweet</p>
+            {% endif %}
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Tweet Text -->
+                <div class="mb-3">
+                    <textarea 
+                        name="text"
+                        class="form-control"
+                        rows="4"
+                        placeholder="Write your tweet here..."
+                    >{{ form.text.value|default_if_none:'' }}</textarea>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="mb-3">
+                    <label class="form-label text-muted">Add Photo (optional)</label>
+                    {{ form.photo }}
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-warning w-100 mt-2">
+                    {% if form.instance.pk %}
+                        Update Tweet
+                    {% else %}
+                        Post Tweet
+                    {% endif %}
+                </button>
+
+            </form>
+
+            <!-- Back Button -->
+            <div class="text-center mt-3">
+                <a class="btn btn-outline-light w-100" href="{% url 'tweet_list' %}">
+                    Back
+                </a>
+            </div>
+
         </div>
-        {% else %}
-        <div style="margin-bottom: 20px;">
-        Create tweet
-        </div>
-        {% endif %}
-        <form method="post" enctype='multipart/form-data' class='form smaller-form'>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class = 'btn btn-warning my-4' type = 'submit'>Submit</button>
-        </form>
-        <div class="text-center" style="margin-top: 20px;">
-            <a class = 'btn btn-danger my-2 mx-5 px-5 py-2' href="{% url 'tweet_list' %}" >Back</a>
-        </div>
-    </h2>
+
+    </div>
 </div>
-{% endblock  %}
+
+{% endblock %}

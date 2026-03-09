@@ -136,7 +136,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/tweet/login/'
 
 LOGIN_REDIRECT_URL = '/tweet/'
 # LOGOUT_REDIRECT_URL = '/tweet/'

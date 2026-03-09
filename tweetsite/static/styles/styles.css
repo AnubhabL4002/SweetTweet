@@ -1,44 +1,50 @@
 .neon-button {
   font-size: 1.3rem;
   padding: 12px 24px;
-  background-color: transparent;   /* Transparent background for neon effect */
-  border: 2px solid #00ffea;       /* Neon border */
+  background-color: transparent;
+  /* Transparent background for neon effect */
+  border: 2px solid #00ffea;
+  /* Neon border */
   border-radius: 8px;
-  color: #00ffea;                  /* Neon text color */
+  color: #00ffea;
+  /* Neon text color */
   text-decoration: none;
   text-align: center;
   position: relative;
   box-shadow: 0 0 5px #00ffea,
-              0 0 10px #00ffea,
-              0 0 20px #00ffea;
+    0 0 10px #00ffea,
+    0 0 20px #00ffea;
   transition: all 0.3s ease;
 }
 
 .neon-button:hover {
-    background-color: #00ffea;      /* Keep same neon background */
+  background-color: #00ffea;
+  /* Keep same neon background */
   color: white;
   border: white;
   box-shadow: 0 0 10px #00ffea,
-              0 0 20px #00ffea,
-              0 0 40px #00ffea;
+    0 0 20px #00ffea,
+    0 0 40px #00ffea;
   transform: scale(1.05);
 }
 
 @keyframes neonPulse {
   0% {
     box-shadow: 0 0 5px #00ffea,
-                0 0 10px #00ffea,
-                0 0 20px #00ffea;
+      0 0 10px #00ffea,
+      0 0 20px #00ffea;
   }
+
   50% {
     box-shadow: 0 0 10px #00ffea,
-                0 0 20px #00ffea,
-                0 0 40px #00ffea;
+      0 0 20px #00ffea,
+      0 0 40px #00ffea;
   }
+
   100% {
     box-shadow: 0 0 5px #00ffea,
-                0 0 10px #00ffea,
-                0 0 20px #00ffea;
+      0 0 10px #00ffea,
+      0 0 20px #00ffea;
   }
 }
 
@@ -61,9 +67,11 @@
   0% {
     box-shadow: 0 0 20px rgba(95, 159, 255, 0.7);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(95, 159, 255, 0.9);
   }
+
   100% {
     box-shadow: 0 0 20px rgba(95, 159, 255, 0.7);
   }
@@ -111,12 +119,64 @@
 
 /* To zoom the tweets  */
 .zoom-card {
-    transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .zoom-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    z-index: 2;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 2;
 }
 
+
+
+/* Feature boxes */
+
+.feature-box {
+  padding: 30px 20px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Hover animation */
+
+.feature-box:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Icon styling */
+
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* Feature title */
+
+.feature-box h6 {
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+/* Feature description */
+
+.feature-box p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+/* Cursor glow  */
+.cursor-glow {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(0, 255, 234, 0.2);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+}

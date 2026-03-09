@@ -27,10 +27,12 @@
     <div class="row justify-content-center gap-3">
         {% for tweet in tweets %}
             <div class="card zoom-card" style="width: 18rem;">
-                <img src="{{tweet.photo.url}}" class="card-img-top py-2" alt="...">
+                {% if tweet.photo %}
+                    <img src="{{ tweet.photo.url }}" class="card-img-top py-2" alt="tweet image">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{tweet.user.username}}</h5>
-                    <p class="card-text">{{tweet.text}}</p>
+                    <p class="card-text text-break">{{ tweet.text }}</p>
                     {% if tweet.user == user %}
                     <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
                     <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>

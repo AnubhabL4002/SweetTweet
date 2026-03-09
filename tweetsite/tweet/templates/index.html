@@ -6,11 +6,46 @@
 {% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 
 <h1 class='cool-heading text-center mt-4 text-success'>Welcome to SweetTweet!</h1>
+
+<p class="text-center text-muted fs-5 mt-3">
+Share your thoughts in short and sweet tweets.
+</p>
+
 <div class="text-center" style="margin-top: 150px;">
   <a class="btn btn-primary neon-button" href="{% url 'tweet_list' %}">See All SweetTweets</a>
+</div>
+
+
+<div class="container mt-5 pt-5">
+  <div class="row text-center justify-content-center g-4">
+
+    <div class="col-10 col-md-3">
+      <div class="feature-box">
+        <div class="feature-icon">✍️</div>
+        <h6>Write Tweets</h6>
+        <p class="text-muted small">Share your thoughts instantly</p>
+      </div>
+    </div>
+
+    <div class="col-10 col-md-3">
+      <div class="feature-box">
+        <div class="feature-icon">📷</div>
+        <h6>Add Photos</h6>
+        <p class="text-muted small">Enhance tweets with images</p>
+      </div>
+    </div>
+
+    <div class="col-10 col-md-3">
+      <div class="feature-box">
+        <div class="feature-icon">🔍</div>
+        <h6>Search Tweets</h6>
+        <p class="text-muted small">Find tweets instantly</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 {% endblock  %}

@@ -1,13 +1,49 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2 class = 'my-4'>Register Form</h2>
-<form method = "post" >
-    {% csrf_token %}
-    {{form.as_p}}
-    <button class="btn btn-primary">Register</button>
 
-</form>
-<p class = 'my-4'>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+<div class="container d-flex justify-content-center align-items-center" style="min-height:70vh;">
+    <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+        <div class="card p-4 shadow">
+
+            <h2 class="text-center mb-4">Register</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    {{ form.username }}
+                    <div class="form-text">{{ form.username.help_text }}</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    {{ form.password1 }}
+                    <div class="form-text">{{ form.password1.help_text }}</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    {{ form.password2 }}
+                </div>
+
+                <button class="btn btn-primary w-100 mt-2">Register</button>
+
+            </form>
+
+            <p class="text-center mt-3">
+                Already have an account?
+                <a href="{% url 'login' %}">Login here</a>
+            </p>
+
+        </div>
+    </div>
+</div>
 
 {% endblock %}
