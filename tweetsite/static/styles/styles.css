@@ -180,3 +180,19 @@
   filter: blur(40px);
   transform: translate(-50%, -50%);
 }
+
+
+.liked-btn {
+  background-color: #1f2933;
+  /* dark theme background */
+  color: #ff4d6d;
+  /* red heart text */
+  border: 1px solid #3c4e61;
+}
+
+.liked-btn:hover {
+  background-color: #27323b;
+  color: #ff4d6d;
+  /* keep heart red */
+  border: 1px solid #27323b;
+}

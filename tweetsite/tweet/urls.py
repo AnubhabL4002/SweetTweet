@@ -17,4 +17,6 @@ urlpatterns = [
     ), name='login'),
 
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+    path('like/<int:tweet_id>/', views.like_tweet, name='like_tweet'),
 ]

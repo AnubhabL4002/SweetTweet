@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Tweet
+from .models import Tweet, Like
 from .forms import TweetForm, UserRegistrationForm
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -14,12 +14,22 @@ def index(request):
 
 def tweet_list(request):
     query = request.GET.get('q')
+
     if query:
         tweets = Tweet.objects.filter(
             Q(text__icontains=query) | Q(user__username__icontains=query)
         ).order_by('-created_at')
     else:
         tweets = Tweet.objects.all().order_by('-created_at')
+
+    # add liked status
+    if request.user.is_authenticated:
+        for tweet in tweets:
+            tweet.liked = Like.objects.filter(user=request.user, tweet=tweet).exists()
+    else:
+        for tweet in tweets:
+            tweet.liked = False
+
     return render(request, 'tweet_list.html', {'tweets': tweets})
 
 
@@ -74,3 +84,17 @@ def register(request):
 
     return render(request, 'registration/register.html', {'form':form})
 
+@login_required
+def like_tweet(request, tweet_id):
+
+    tweet = get_object_or_404(Tweet, id=tweet_id)
+
+    like, created = Like.objects.get_or_create(
+        user=request.user,
+        tweet=tweet
+    )
+
+    if not created:
+        like.delete()
+
+    return redirect('tweet_list')
